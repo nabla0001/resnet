@@ -104,6 +104,10 @@ conda env create -f env.yml
 To run experiments
 
 ```shell
+conda activate pytorch
+```
+
+```shell
 # ResNet20
 python train.py --exp-name resnet20 --n 3 --skip-connection zeropad
 
@@ -113,7 +117,7 @@ python train.py --exp-name resnet110 --n 18 --skip-connection zeropad
 # PlainNet20
 python train.py --exp-name resnet56 --n 3 --model-type plain
 ```
-see `train.py` for all available options.
+see `train.py` for all available command line options.
 
 ## Related work
 
