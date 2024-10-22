@@ -9,6 +9,7 @@ PyTorch implementation of the original CIFAR-10 Residual Net (ResNet) models pub
 * [Motivation](https://github.com/nabla0001/resnet/tree/main?tab=readme-ov-file#motivation)
 * [Results](https://github.com/nabla0001/resnet/tree/main?tab=readme-ov-file#results)
 * [Hyperparameters](https://github.com/nabla0001/resnet/tree/main?tab=readme-ov-file#hyperparameters)
+* [GPU training](https://github.com/nabla0001/resnet/tree/main?tab=readme-ov-file#gpu-training)
 * [Usage](https://github.com/nabla0001/resnet/tree/main?tab=readme-ov-file#usage)
 
 ## Introduction
@@ -121,11 +122,10 @@ conda env create -f env.yml
 
 To run experiments
 
-```shell
-conda activate pytorch
-```
 
 ```shell
+conda activate pytorch
+
 # ResNet20
 python train.py --exp-name resnet20 --n 3 --skip-connection zeropad
 
