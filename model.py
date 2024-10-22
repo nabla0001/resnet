@@ -2,7 +2,7 @@
 
 import torch.nn as nn
 from torch import Tensor
-from typing import Optional, Union
+from typing import Optional
 
 
 """Modules for the skip connection of residual blocks.
