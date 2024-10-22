@@ -1,6 +1,6 @@
 # Deep Residual Networks
 
-PyTorch implementation of the original CIFAR10 Residual Net (ResNet) models described in
+PyTorch implementation of the original CIFAR-10 Residual Net (ResNet) models described in
 ["Deep Residual Learning for Image Recognition"](https://arxiv.org/pdf/1512.03385) by He et al. (2015) [1].
 
 ## Overview
@@ -15,7 +15,7 @@ PyTorch implementation of the original CIFAR10 Residual Net (ResNet) models desc
 
 Published in 2015, the paper was a deep learning milestone 
 showing how to train neural networks of unseen depth at the time. 
-Residual Nets were able to stack 100 to 1000 layers while state-of-the-art models such as VGG-16 contained less than 20.
+Residual Nets were able to stack 100 to 1000 layers while state-of-the-art models such as VGG-19 contained less than 20.
 
 It achieved this by introducing "shortcut connections" between layers which forward
 activations without transformations and improve optimisation. The resulting deep networks won the ImageNet Large Scale
@@ -27,7 +27,7 @@ architectures such as Transformers.
 The goals of this project were
 
 1. understand the ResNet architecture in detail by building it
-2. validate the implementation by re-producing the CIFAR10 results from the paper (section 4.2.)
+2. validate the implementation by re-producing the CIFAR-10 experiements from the paper (section 4.2.)
 
 
 ## Results
@@ -39,23 +39,23 @@ The implementation closely re-produces the results in [1].
 The experiments re-produce Fig. 6 in the paper and show the "degradation problem" of making  networks deeper: 
 curiously, as CNNs without residual connections (*Plain Nets*) are made deeper their *training error* (as well as their test error)
 increases. So this effect is not the result of over-fitting. The deeper models clearly perform worse than their shallower 
-counterparts.
+counterparts. This issue also occurs for other datasets, e.g. ImageNet.
 
-*Residual Nets*, on the other hand, address this problem (via shortcut connections) and 
+*Residual Nets*, on the other hand, address this problem and 
 1. improve performance as network depth increases
 2. show better final test performance than plain counterparts
 
-![Fig. 7](/plots/training-curves.png)
+![Fig. 6](/plots/training-curves.png)
 
 ### Test performance
 
-| model      | test error (%) | test error (%) [*He et al.*] | # params |
-|------------|----------------|------------------------------|----------|
-| ResNet-20  | 8.51  (±0.22)  | 8.75                         | 0.270M   |
-| ResNet-56  | 7.40  (±0.27)  | 6.97                         | 0.853M   |
-| ResNet-110 | 7.14  (±0.20)  | 6.61                         | 1.732M   |
-| Plain-20   | 9.78  (±0.13)  | ~9<sup>*</sup>               | 0.270M   |
-| Plain-56   | 12.95 (±0.22)  | ~13<sup>*</sup>              | 0.853M   |
+| model      | test error (%) | test error (%) [*He et al.*] | # params | # layers |
+|------------|----------------|------------------------------|----------|----------|
+| ResNet-20  | 8.51  (±0.22)  | 8.75                         | 0.270M   | 20       |
+| ResNet-56  | 7.40  (±0.27)  | 6.97                         | 0.853M   | 56       |
+| ResNet-110 | 7.14  (±0.20)  | 6.61                         | 1.732M   | 110      | 
+| Plain-20   | 9.78  (±0.13)  | ~9<sup>*</sup>               | 0.270M   | 20       | 
+| Plain-56   | 12.95 (±0.22)  | ~13<sup>*</sup>              | 0.853M   | 56       | 
 
  <sup>**plain net errors are read from graphs because they are not reported*</sup>
 
