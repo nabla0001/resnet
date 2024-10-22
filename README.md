@@ -102,7 +102,7 @@ checks for available devices:
 * `cuda`
 * `cpu`
 
-All models were trained on a M3 MacBook via _Metal Performance Shaders_ (MPS) backend.
+All models were trained on GPUs on a M3 MacBook.
 
 Approximate training times for each model are:
 
