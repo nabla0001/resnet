@@ -22,7 +22,7 @@ It achieved this by introducing "shortcut connections" between layers which forw
 activations without transformations and improve optimisation. The resulting deep networks won the ImageNet Large Scale
 Visual Recognition Challenge (ILSVRC) in 2015. Shortcut connections have become a foundational building block in deep learning
 and are applied in many influential contemporary architectures such as
-Transformers, UNets and EffiecientNets.
+Transformers, UNets and EfficientNets.
 
 ## Motivation
 
