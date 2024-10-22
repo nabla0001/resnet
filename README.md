@@ -103,7 +103,7 @@ checks for available devices:
 * `cpu`
 
 
-For all experiments models were trained on Apple Silicon GPUs via _Metal Performance Shaders_ (MPS) backend.
+All models were trained on a M3 MacBook via _Metal Performance Shaders_ (MPS) backend.
 
 Approximate training times for each model are:
 
