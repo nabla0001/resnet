@@ -15,13 +15,14 @@ if __name__ == '__main__':
     parser.add_argument('--n',
                         type=int,
                         default=3,
-                        help='number of stacked blocks, determines network depth. e.g. n=3 yields ResNet20/PlanNet20')
+                        help='number of stacked blocks, determines network depth. e.g. n=3/9/18 yields ResNet-20/56/110')
     parser.add_argument('--model-type', type=str, choices=['resnet', 'plain'], default='resnet')
     parser.add_argument('--skip-connection',
                         type=str,
                         choices=['none', 'zeropad', 'zeropad-maxpool', 'conv1x1-proj'],
                         default='none')
     parser.add_argument('--exp-dir', type=str, default='experiments')
+    parser.add_argument('--data-dir', type=str, default='data')
     args = parser.parse_args()
     print(args)
 
@@ -54,7 +55,7 @@ if __name__ == '__main__':
     weight_decay = 1e-4
 
     # data
-    train_loader, val_loader, test_loader = cifar10_data_loaders(batch_size)
+    train_loader, val_loader, test_loader = cifar10_data_loaders(batch_size, data_dir=args.data_dir)
 
     # model
     block = ResidualBlock if args.model_type == 'resnet' else PlainBlock
