@@ -98,10 +98,9 @@ to 0.1 after 400 batches. All models are trained for 64k batches.
 The implementation supports GPU and CPU training and automatically
 checks for available devices:
 
-* `mps` (Apple Silicon)
+* `mps`
 * `cuda`
 * `cpu`
-
 
 All models were trained on a M3 MacBook via _Metal Performance Shaders_ (MPS) backend.
 
@@ -115,7 +114,7 @@ Approximate training times for each model are:
 
 ## Usage
 
-Simply re-create my `conda` environment via
+You can re-create my `conda` environment via
 
 ```shell
 conda env create -f env.yml
