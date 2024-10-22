@@ -40,8 +40,13 @@ if __name__ == '__main__':
     print(f'checkpoint path: {checkpoint_path}')
 
     # device
-    device = 'mps' if torch.backends.mps.is_available() else 'cpu'
-    print(f"device: {device}")
+    if torch.backends.mps.is_available():
+        device = torch.device('mps')
+    elif torch.cuda.is_available():
+        device = torch.device('cuda')
+    else:
+        device = torch.device('cpu')
+    print(f'device: {device}')
 
     # hyperparameters (see He et al. 2015)
     batch_size = 128
