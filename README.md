@@ -137,8 +137,11 @@ python train.py --exp-name resnet56 --n 3 --model-type plain
 ```
 see `train.py` for all available command line options.
 
-Each experiment produces two files: a results file (`.pkl`) and model checkpoint (`.ckpt`) which are written to
-a subfolder `{exp_name}` in `experiments` (configurable via command line).
+Each experiment produces two files: 
+1. a results file (`.pkl`) containing training/test metrics
+2. a model checkpoint (`.ckpt`) 
+
+which are written to a subfolder `{exp_name}` in `experiments` (configurable via command line).
 
 ## Related work
 
