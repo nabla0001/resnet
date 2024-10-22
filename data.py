@@ -4,7 +4,7 @@ import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
 
 
-def cifar10_data_loaders(batch_size: int = 128) -> tuple[DataLoader, DataLoader, DataLoader]:
+def cifar10_data_loaders(batch_size: int = 128, data_dir: str = 'data') -> tuple[DataLoader, DataLoader, DataLoader]:
     """Returns CIFAR10 train/val/test data loaders
 
     train:  45k - data augmentation
@@ -30,11 +30,11 @@ def cifar10_data_loaders(batch_size: int = 128) -> tuple[DataLoader, DataLoader,
         transforms.Normalize(channel_mean, channel_std)])
 
     # 45k/5k train/val split
-    train = torchvision.datasets.CIFAR10(root="~/data/cifar10",
+    train = torchvision.datasets.CIFAR10(root=data_dir,
                                          train=True,
                                          transform=train_transform,
                                          download=True)
-    val = torchvision.datasets.CIFAR10(root="~/data/cifar10",
+    val = torchvision.datasets.CIFAR10(root=data_dir,
                                          train=True,
                                          transform=test_transform,
                                          download=True)
@@ -45,7 +45,7 @@ def cifar10_data_loaders(batch_size: int = 128) -> tuple[DataLoader, DataLoader,
     train = torch.utils.data.Subset(train, train_idx)
     val = torch.utils.data.Subset(val, val_idx)
 
-    test = torchvision.datasets.CIFAR10(root="~/data/cifar10",
+    test = torchvision.datasets.CIFAR10(root=data_dir,
                                         train=False,
                                         transform=test_transform,
                                         download=True)
