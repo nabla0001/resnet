@@ -1,6 +1,6 @@
 # Deep Residual Networks
 
-PyTorch implementation of the original CIFAR-10 Residual Net (ResNet) models described in
+PyTorch implementation of the original CIFAR-10 Residual Net (ResNet) models published in
 ["Deep Residual Learning for Image Recognition"](https://arxiv.org/pdf/1512.03385) by He et al. (2015) [1].
 
 ## Overview
@@ -19,8 +19,8 @@ Residual Nets were able to stack 100 to 1000 layers while state-of-the-art model
 
 It achieved this by introducing "shortcut connections" between layers which forward
 activations without transformations and improve optimisation. The resulting deep networks won the ImageNet Large Scale
-Visual Recognition Challenge (ILSVRC) in 2015. The principle of shortcut connections has been central to many contemporary
-architectures such as Transformers.
+Visual Recognition Challenge (ILSVRC) in 2015. Shortcut connections have become a foundational building block for many other influential
+architectures, such as Transformers.
 
 ## Motivation
 
@@ -91,7 +91,25 @@ to 0.1 after 400 batches. All models are trained for 64k batches.
 * Random-crop: 32x32 pixels
 * Random horizontal flip
 
+## GPU training
 
+The implementation supports GPU and CPU training and automatically
+checks for available devices:
+
+* `mps` (Apple Silicon)
+* `cuda`
+* `cpu`
+
+
+For all experiments models were trained on Apple Silicon GPUs via _Metal Performance Shaders_ (MPS) backend.
+
+Approximate training times for each model are:
+
+| Model      | Training time |
+|------------|---------------|
+| ResNet-20  | 25 min        | 
+| ResNet-56  | 65 min        | 
+| ResNet-110 | 130 min       | 
 
 ## Usage
 
@@ -118,6 +136,9 @@ python train.py --exp-name resnet110 --n 18 --skip-connection zeropad
 python train.py --exp-name resnet56 --n 3 --model-type plain
 ```
 see `train.py` for all available command line options.
+
+Each experiment produces two files: a results file (`.pkl`) and model checkpoint (`.ckpt`) which are written to
+a subfolder `{exp_name}` in `experiments` (configurable via command line).
 
 ## Related work
 
