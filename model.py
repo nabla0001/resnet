@@ -43,7 +43,8 @@ class Conv1x1Projection(nn.Module):
 
 class ZeroPaddingMaxPool(nn.Module):
     """Explored alternative to option A (not in He et al. 2015).
-    spatial down-sampling is achieved by conventional max pooling with a
+
+    Spatial down-sampling is achieved by conventional max pooling with a
     2x2 kernel and stride of 2 instead of skipping pixels.
     """
     def __init__(self, in_channels: int, out_channels: int, stride: int = 2):
