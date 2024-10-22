@@ -20,8 +20,9 @@ Residual Nets were able to stack 100 to 1000 layers while state-of-the-art model
 
 It achieved this by introducing "shortcut connections" between layers which forward
 activations without transformations and improve optimisation. The resulting deep networks won the ImageNet Large Scale
-Visual Recognition Challenge (ILSVRC) in 2015. Shortcut connections have become a foundational building block for many other influential
-architectures, such as Transformers.
+Visual Recognition Challenge (ILSVRC) in 2015. Shortcut connections have become a foundational building block in deep learning
+and are applied in many influential contemporary architectures such as
+Transformers, UNets and EffiecientNets.
 
 ## Motivation
 
