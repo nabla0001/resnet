@@ -1,4 +1,4 @@
-"""Implements original ResNet CIFAR10 architecture from He et al. 2015 https://arxiv.org/pdf/1512.03385"""
+"""Implements original ResNet CIFAR-10 architecture from He et al. 2015 https://arxiv.org/pdf/1512.03385"""
 
 import torch.nn as nn
 from torch import Tensor
@@ -7,10 +7,9 @@ from typing import Optional, Union
 
 """Modules for the skip connection of residual blocks.
 
-they handle the mismatch between x (forwarded via skip connection) and the residual output, 
-e.g. when the previous layer outputs a feature map x of size (C=16, H=32, W=32) and the current layer produces
-a feature map f of size (C=32, H=16, W=16), x needs to be brought to (C=16, H=32, W=32) to be able element-wise
-add it to f.
+they handle the mismatch between x (forwarded via skip connection) and the residual output, e.g. when 
+the previous layer outputs a feature map x of size (C=16, H=32, W=32) and the current layer produces a 
+feature map f of size (C=32, H=16, W=16), x needs to be brought to (C=16, H=32, W=32) to be able element-wise add it to f.
 """
 class ZeroPadding(nn.Module):
     """Option A in He et al. 2015"""
