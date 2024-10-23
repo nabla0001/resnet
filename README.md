@@ -47,7 +47,7 @@ counterparts. This issue also occurs for other datasets, e.g. ImageNet.
 1. improve performance as network depth increases
 2. show better final test performance than plain counterparts
 
-![Fig. 6](/plots/training-curves.png)
+![Fig. 6](/plots/training-curves-git.png)
 
 ### Test performance
 
